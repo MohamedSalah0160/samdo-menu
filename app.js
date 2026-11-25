@@ -49,6 +49,7 @@ function render(D){
   if(wa){var w=el('a','wa','واتساب: +'+wa.replace(/^(\d{3})(\d{2})(\d{3})(\d{4})$/,'$1 $2 $3 $4'));w.href='https://wa.me/'+wa;w.target='_blank';w.rel='noopener';cs.appendChild(w);
     var t=el('p','tel');var ta=el('a',null,'+'+wa.replace(/^(\d{3})(\d{2})(\d{3})(\d{4})$/,'$1 $2 $3 $4'));ta.href='tel:+'+wa;ta.dir='ltr';t.appendChild(ta);cs.appendChild(t);}
   app.appendChild(cs);
+  /*spy*/var links=[].slice.call(nav.children);if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){var on=l.getAttribute('href')==='#'+e.target.id;l.classList.toggle('on',on);if(on)l.scrollIntoView({inline:'center',block:'nearest'});});}});},{rootMargin:'-30% 0px -65% 0px'});[].slice.call(app.querySelectorAll('section')).forEach(function(s){io.observe(s);});}
 }
 Store.loadPublic().then(render).catch(function(){document.getElementById('status').textContent='تعذر تحميل المنيو، حدّث الصفحة.';});
 })();
