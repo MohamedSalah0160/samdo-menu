@@ -83,7 +83,11 @@ function render(D){
     var t=el('p','tel');var ta=el('a',null,'+'+wa.replace(/^(\d{3})(\d{2})(\d{3})(\d{4})$/,'$1 $2 $3 $4'));ta.href='tel:+'+wa;ta.dir='ltr';t.appendChild(ta);cs.appendChild(t);}
   app.appendChild(cs);
   refresh();
-  /*spy*/var links=[].slice.call(nav.children);if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){var on=l.getAttribute('href')==='#'+e.target.id;l.classList.toggle('on',on);if(on)l.scrollIntoView({inline:'center',block:'nearest'});});}});},{rootMargin:'-30% 0px -65% 0px'});[].slice.call(app.querySelectorAll('section')).forEach(function(s){io.observe(s);});}
+  /*spy*/var links=[].slice.call(nav.children),secs=[].slice.call(app.querySelectorAll('section')).filter(function(x){return x.id!=='contact';}),lockUntil=0,cur2=null;
+  function setOn(id){if(id===cur2)return;cur2=id;links.forEach(function(l){var on=l.getAttribute('href')==='#'+id;l.classList.toggle('on',on);if(on){var nl=nav.getBoundingClientRect(),r=l.getBoundingClientRect();nav.scrollLeft+=(r.left+r.width/2)-(nl.left+nl.width/2);}});}
+  links.forEach(function(l){l.addEventListener('click',function(e){e.preventDefault();var id=l.getAttribute('href').slice(1),t=document.getElementById(id);if(!t)return;lockUntil=Date.now()+700;setOn(id);window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-nav.offsetHeight-6,behavior:'auto'});});});
+  var tick=false;function spy(){tick=false;if(Date.now()<lockUntil)return;var y=nav.offsetHeight+40,pick=secs[0]&&secs[0].id;secs.forEach(function(s){if(s.getBoundingClientRect().top<=y)pick=s.id;});if(pick)setOn(pick);}
+  window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(spy);}},{passive:true});spy();
 }
 Store.loadPublic().then(render).catch(function(){document.getElementById('status').textContent='تعذر تحميل المنيو، حدّث الصفحة.';});
 })();

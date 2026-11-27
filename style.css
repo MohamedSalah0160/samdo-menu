@@ -1,21 +1,21 @@
 
 :root{--g:#d4af37;--g2:#f3d77a;--bg:#0b0b0d;--card:#151518;--card2:#1b1b1f;--line:#ffffff14;--mut:#a79c7c}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html{scroll-behavior:smooth;scroll-padding-top:70px}
-body{background:var(--bg);color:#f6efdc;font-family:"Cairo","Tajawal","Segoe UI",Tahoma,sans-serif;line-height:1.6;min-height:100vh;
+html{overflow-x:hidden;-webkit-text-size-adjust:100%}
+body{overflow-x:hidden;background:var(--bg);color:#f6efdc;font-family:"Cairo","Tajawal","Segoe UI",Tahoma,sans-serif;line-height:1.6;min-height:100vh;
 background-image:radial-gradient(600px 300px at 80% -50px,#d4af3726,transparent),radial-gradient(500px 300px at 0% 30%,#d4af3710,transparent)}
-header{position:relative;text-align:center;padding:34px 16px 20px;overflow:hidden}
+header{position:relative;min-height:240px;text-align:center;padding:34px 16px 20px;overflow:hidden}
 header:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#d4af3714,transparent);pointer-events:none}
 .logo{position:relative;width:min(44vw,150px);aspect-ratio:1;object-fit:cover;border-radius:50%;border:2px solid var(--g);box-shadow:0 0 0 6px #d4af3718,0 10px 40px #d4af3740;animation:pop .7s cubic-bezier(.2,.9,.3,1.2) both}
 h1{font-size:2.4rem;font-weight:800;margin-top:12px;line-height:1.2;background:linear-gradient(135deg,#fff3c4,var(--g) 60%,#b8891c);-webkit-background-clip:text;background-clip:text;color:transparent}
 .slogan{font-size:1.1rem;color:var(--g2);font-weight:600}
 .sub{letter-spacing:.3em;font-size:.72rem;color:var(--mut);margin-top:6px;direction:ltr}
-nav{position:sticky;top:0;z-index:5;display:flex;gap:8px;overflow-x:auto;padding:10px 14px;background:#0b0b0dcc;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);scrollbar-width:none}
+nav{overscroll-behavior-x:contain;min-height:52px;position:sticky;top:0;z-index:5;display:flex;gap:8px;overflow-x:auto;padding:10px 14px;background:#0b0b0df2;border-bottom:1px solid var(--line);scrollbar-width:none}
 nav::-webkit-scrollbar{display:none}
-nav a{flex:none;color:#e9dfc0;text-decoration:none;background:var(--card2);border:1px solid var(--line);border-radius:999px;padding:6px 16px;font-size:.92rem;font-weight:600;transition:.2s}
+nav a{flex:none;color:#e9dfc0;text-decoration:none;background:var(--card2);border:1px solid var(--line);border-radius:999px;padding:6px 16px;font-size:.92rem;font-weight:600;transition:background .2s,color .2s}
 nav a.on,nav a:active{background:linear-gradient(135deg,var(--g2),#b8891c);color:#111;border-color:transparent;box-shadow:0 4px 14px #d4af3740}
 main{max-width:720px;margin:0 auto;padding:6px 14px 30px}
-section{margin-top:28px;animation:rise .5s ease both}
+section{margin-top:28px}
 h2{font-size:1.45rem;font-weight:800;color:#fff;display:flex;justify-content:space-between;align-items:center;margin:0 4px 12px}
 h2:before{content:"";width:5px;height:22px;border-radius:4px;background:linear-gradient(var(--g2),#b8891c);margin-inline-end:10px}
 h2{gap:0}h2 em{margin-inline-start:auto;font-style:normal;font-size:.68rem;letter-spacing:.2em;color:var(--mut);direction:ltr;font-weight:600}
