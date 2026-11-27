@@ -1,8 +1,8 @@
 
 :root{--g:#d4af37;--g2:#f3d77a;--bg:#0b0b0d;--card:#151518;--card2:#1b1b1f;--line:#ffffff14;--mut:#a79c7c}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html{overflow-x:hidden;-webkit-text-size-adjust:100%}
-body{overflow-x:hidden;background:var(--bg);color:#f6efdc;font-family:"Cairo","Tajawal","Segoe UI",Tahoma,sans-serif;line-height:1.6;min-height:100vh;
+html{overflow-x:clip;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:#f6efdc;font-family:"Cairo","Tajawal","Segoe UI",Tahoma,sans-serif;line-height:1.6;min-height:100vh;
 background-image:radial-gradient(600px 300px at 80% -50px,#d4af3726,transparent),radial-gradient(500px 300px at 0% 30%,#d4af3710,transparent)}
 header{position:relative;min-height:240px;text-align:center;padding:34px 16px 20px;overflow:hidden}
 header:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#d4af3714,transparent);pointer-events:none}
@@ -10,7 +10,7 @@ header:before{content:"";position:absolute;inset:0;background:linear-gradient(18
 h1{font-size:2.4rem;font-weight:800;margin-top:12px;line-height:1.2;background:linear-gradient(135deg,#fff3c4,var(--g) 60%,#b8891c);-webkit-background-clip:text;background-clip:text;color:transparent}
 .slogan{font-size:1.1rem;color:var(--g2);font-weight:600}
 .sub{letter-spacing:.3em;font-size:.72rem;color:var(--mut);margin-top:6px;direction:ltr}
-nav{overscroll-behavior-x:contain;min-height:52px;position:sticky;top:0;z-index:5;display:flex;gap:8px;overflow-x:auto;padding:10px 14px;background:#0b0b0df2;border-bottom:1px solid var(--line);scrollbar-width:none}
+nav{overscroll-behavior-x:contain;min-height:52px;position:fixed;top:0;left:0;right:0;z-index:25;display:flex;gap:8px;overflow-x:auto;padding:10px 14px;background:#0b0b0df2;border-bottom:1px solid var(--line);scrollbar-width:none}
 nav::-webkit-scrollbar{display:none}
 nav a{flex:none;color:#e9dfc0;text-decoration:none;background:var(--card2);border:1px solid var(--line);border-radius:999px;padding:6px 16px;font-size:.92rem;font-weight:600;transition:background .2s,color .2s}
 nav a.on,nav a:active{background:linear-gradient(135deg,var(--g2),#b8891c);color:#111;border-color:transparent;box-shadow:0 4px 14px #d4af3740}
@@ -67,3 +67,6 @@ body{padding-bottom:84px}
 .tt{display:flex;justify-content:space-between;font-size:1.2rem;margin:14px 2px}.tt b{color:var(--g2)}
 .cc{display:block;margin:12px auto 0;background:none;border:0;color:#ff9a9a;font:inherit;font-size:.85rem}
 body.lock{overflow:hidden}
+
+body{padding-top:52px}
+nav{max-width:none}
